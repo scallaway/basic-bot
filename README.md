@@ -17,7 +17,7 @@
  - NodeJS v9.4 or higher
  - NPM v5 or higher
 
-### Then jump [here](#code)
+### Then jump [here](#finally-the-code)
 
 ---
 
@@ -51,7 +51,7 @@ From here, you can select the server that you wish to connect your bot to from t
 
 *Depending on the roles setup on your particular server, you might have to assign a few to the bot to allow it to do everything you want.*
 
-## Code
+## Finally, the code
 ### This bit is nice and simple 😊
 
 1.) `cp config.example.json config.json`
