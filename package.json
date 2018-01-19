@@ -1,0 +1,20 @@
+{
+  "name": "basic-bot",
+  "version": "1.0.0",
+  "description": "A very simple boilerplate for creating Discord Bots",
+  "main": "bot.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scallaway/basic-bot.git"
+  },
+  "keywords": [],
+  "author": "Scott Callaway",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scallaway/basic-bot/issues"
+  },
+  "homepage": "https://github.com/scallaway/basic-bot#readme",
+  "dependencies": {
+    "discord.js": "^11.3.0"
+  }
+}
