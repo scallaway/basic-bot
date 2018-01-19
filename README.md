@@ -17,7 +17,8 @@
  - NodeJS v9.4 or higher
  - NPM v5 or higher
 
-Then jump [here](#code)
+### Then jump [here](#code)
+
 ---
 
 ## The Slightly Longer version
