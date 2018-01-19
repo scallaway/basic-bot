@@ -13,6 +13,11 @@
 
 3.) Here: `https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID_GOES_HERE&scope=bot&permissions=0`
 
+### Things You Need
+ - NodeJS v9.4 or higher
+ - NPM v5 or higher
+
+Then jump [here](#code)
 ---
 
 ## The Slightly Longer version
@@ -27,9 +32,9 @@ Click the *Create a Bot User* button. This will allow you to *"interact with use
 
 **Get your pen and paper ready, you're going to have to jot some stuff down.**
 
-You'll now see various information in the place of the button and you can choose whether you want to make your bot Public and/or require OAuth2 (or learn more if you're that way inclined).
+You'll now see various information in place of the button and you can now choose whether you want to make your bot Public and/or require OAuth2 (or learn more if you're that way inclined).
 
-Click the text that says *"click to reveal"* next to *"token"* and write down the long string of letters and numbers that it shows. This is how discord will know that the code you're writing is the bot you've said it is in this application.
+Click the text that says *"click to reveal"* next to *"token"* and write down the long string of letters and numbers that it shows. This is how discord will know that the code you're writing is the bot you've said it is here.
 
 Before you go anywhere, quickly scroll right back to the top and grab your **ClientID**. This is important for the next bit.
 
@@ -45,14 +50,14 @@ From here, you can select the server that you wish to connect your bot to from t
 
 *Depending on the roles setup on your particular server, you might have to assign a few to the bot to allow it to do everything you want.*
 
-## Finally, the Code
+## Code
 ### This bit is nice and simple 😊
 
 1.) `cp config.example.json config.json`
 
 Creates a copy of the file `config.example.json` called `config.json` which is used by the bot.
 
-2.) Fill in the values with the information about your bot application.
+2.) Fill in the Discord Token in the `config.json` and pick a prefix (the default is `!`).
 
 3.) `npm install && node bot.js`
 
