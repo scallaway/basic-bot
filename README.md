@@ -3,19 +3,23 @@
 ### Just want to get up and running developing your own bots for you Discord Server? This boilerplate code has you covered! Along with a comprehensive yet concise guide to setting up.
 
 ## The Boring Setup 😴
-*As with anything, there is a bit of setup that is inevitable...*
+
+_As with anything, there is a bit of setup that is inevitable..._
 
 **TL;DR**
 
 1.) [Here](https://discordapp.com/developers/applications/me) (might need to sign in)
 
-2.) *Create a Bot User*, save Token somewhere
+2.) Save Client ID
 
-3.) Here: `https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID_GOES_HERE&scope=bot&permissions=0`
+3.) **Bot** -> **Add Bot**, save Token somewhere, set permissions
+
+4.) Here: `https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID&scope=bot&permissions=PERMISSIONS`
 
 ### Things You Need
- - NodeJS v9.4 or higher
- - NPM v5 or higher
+
+- NodeJS v8.0.0 or higher
+- NPM v5 or higher
 
 ### Then jump [here](#finally-the-code)
 
@@ -27,38 +31,49 @@ Navigate your way over to the [Discord Developer Applications](https://discordap
 
 Give it a name, some sort of description and an icon if you're feeling fancy.
 
-Once that is done, you'll be shown a whole heap of information on your newly created app. You need to scroll down through all the guff to the bottom where it says **Bot**.
+Before you leave this page, be sure to copy down the **Client ID** as this will be important for later.
 
-Click the *Create a Bot User* button. This will allow you to *"interact with users in a more conversational manner"*. This is vital. (Say yes to the popup as well)
+Once that is done, click the **Bot** button on the left hand side under **Settings**. This is where you will _bring your app to life!_
 
-**Get your pen and paper ready, you're going to have to jot some stuff down.**
+Click the **Add Bot** button. This will give your app _"visible life in Discord"_. This is vital. (Say yes to the popup as well)
 
-You'll now see various information in place of the button and you can now choose whether you want to make your bot Public and/or require OAuth2 (or learn more if you're that way inclined).
+---
 
-Click the text that says *"click to reveal"* next to *"token"* and write down the long string of letters and numbers that it shows. This is how discord will know that the code you're writing is the bot you've said it is here.
+### _A wild bot has appeared!_
 
-Before you go anywhere, quickly scroll right back to the top and grab your **ClientID**. This is important for the next bit.
+The page will now provide you with a different set of information. From here, you'll be able to decide whether you want to make your bot public, and/or require a full OAuth2 flow.
+
+Click the text that says **Click to Reveal Token** and copy the long string of letters and numbers that it shows. This is how discord will know that the code you've written is the bot you've specified here.
+
+Quickly select the permissions that you need for your bot at the bottom of the page. Make sure to copy the **Permissions Integer** as that is important when linking your bot to your server!
+
+---
 
 ### Last bit of setup, hang in there 👌
 
-Take this URL: `https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID_GOES_HERE&scope=bot&permissions=0`
+(At this point, if you don't have a server. Go and create one! It's quick and easy, and it's free!)
 
-Replace `CLIENT_ID_GOES_HERE` with the ClientID that you just noted down and then navigate to that page.
+Take this URL: `https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID&scope=bot&permissions=PERMISSIONS`
+
+Replacing `CLIENT_ID` with your ClientID and `PERMISSIONS` with the Permissions Integer that you just copied. Then navigate to the page.
 
 From here, you can select the server that you wish to connect your bot to from the dropdown and then click Authorize.
 
 **Your bot is now allowed on your server!**
 
-*Depending on the roles setup on your particular server, you might have to assign a few to the bot to allow it to do everything you want.*
+_Depending on the roles setup on your particular server, you might have to assign a few to the bot to allow it to do everything you want._
+
+---
 
 ## Finally, the code
+
 ### This bit is nice and simple 😊
 
 1.) `cp config.example.json config.json`
 
 Creates a copy of the file `config.example.json` called `config.json` which is used by the bot.
 
-2.) Fill in the Discord Token in the `config.json` and pick a prefix (the default is `!`).
+2.) In the `config.json`, fill in the Discord Token with the Token that you copied from your bot and pick a prefix (the default is `!`).
 
 3.) `npm install && node bot.js`
 
