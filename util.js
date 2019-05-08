@@ -1,33 +1,45 @@
-// We need access to the information within the config file
-const config = require('./config.json');
+/**
+ * Most of the reusable logic exists in this file, separated into appropriate sections for import.
+ */
+const config = require("./config.json");
 
 const discord = {
   /**
-   * Gets the current number of Online Users on the server
-   * that the bot has just connected to.
-   * @param users A Collection of all users on the server
+   * Gets the current number of Online Users on the server.
+   * @param users A Collection of all users
    * @returns The number of online users
    */
-  getOnlineUsers: (users) => {
-    let onlineUsers = [];
-    users.forEach(user => {
-      if (user.presence.status === 'online') {
-        onlineUsers.push(user);
-      }
-    });
-
-    return onlineUsers.length;
-  },
+  getOnlineUsers: users =>
+    users.filter(user => user.presence.status !== "offline" && !user.bot).size,
 
   /**
    * Gets the first command from the message that was sent.
    * @param message A message object
    * @return The command that was issued
    */
-  getCommand: (message) => {
-    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  getCommand: message => {
+    const args = message.content
+      .slice(config.prefix.length)
+      .trim()
+      .split(/ +/g);
     return args.shift().toLowerCase();
-  }
+  },
+
+  /**
+   * Gets the total number of voice channels in the server.
+   * @param channels A collection of server channels
+   * @return The number of voice channels
+   */
+  getVoiceChannels: channels =>
+    channels.filter(channel => channel.type === "voice").size,
+
+  /**
+   * Gets the number of text channels in the server.
+   * @param channels A collection of server channels
+   * @return The number of text channels
+   */
+  getTextChannels: channels =>
+    channels.filter(channel => channel.type === "text").size
 };
 
 const helpers = {
@@ -37,9 +49,7 @@ const helpers = {
    * @param time A Discord timestamp
    * @return A string of the Date and Time
    */
-  convertTime: (time) => {
-    return new Date(time).toString();
-  }
+  convertTime: time => new Date(time).toString()
 };
 
 module.exports = {
