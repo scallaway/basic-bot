@@ -2,4 +2,4 @@
 .vscode
 .DS_STORE
 package-lock.json
-config.json
+.env

@@ -1,7 +1,5 @@
-/**
- * Most of the reusable logic exists in this file, separated into appropriate sections for import.
- */
-const config = require("./config.json");
+require("dotenv").config();
+const prefix = process.env["COMMAND_PREFIX"];
 
 const discord = {
   /**
@@ -19,7 +17,7 @@ const discord = {
    */
   getCommand: message => {
     const args = message.content
-      .slice(config.prefix.length)
+      .slice(prefix.length)
       .trim()
       .split(/ +/g);
     return args.shift().toLowerCase();

@@ -3,11 +3,29 @@
   and the instantiation of the Discord Client Class takes place.
 */
 const Discord = require("discord.js");
-const config = require("./config.json");
 const util = require("./util");
+
+require("dotenv").config();
 
 // Create a new instance of the Discord Client Class.
 const bot = new Discord.Client();
+
+console.log(process.env["DISCORD_TOKEN"]);
+
+const token = process.env["DISCORD_TOKEN"];
+const prefix = process.env["BOT_PREFIX"];
+
+// Check that we have a token in the .env file.
+if (!token) {
+  console.error("A token is required to connect to Discord.");
+  process.exit(1);
+}
+
+// Check that we have a token set in the .env file.
+if (!prefix) {
+  console.error("A prefix is required to call commands.");
+  process.exit(1);
+}
 
 // Ready is emitted whenever a message is created.
 bot.on("ready", () => {
@@ -30,7 +48,7 @@ bot.on("message", message => {
   const { author, channel, content, createdTimestamp } = message;
 
   // If the message doesn't contain the command prefix, we might as well leave it alone.
-  if (content.indexOf(config.prefix) !== 0) return;
+  if (content.indexOf(prefix) !== 0) return;
 
   // No point dealing with the message if it was sent by a bot!
   if (author.bot) return;
@@ -42,7 +60,7 @@ bot.on("message", message => {
   if (command === "ping") {
     // It's nice to have a log of when the command was sent for future reference along with the person that sent it.
     console.log(
-      `Command [${config.prefix + command}] Received from ${
+      `Command [${prefix + command}] Received from ${
         author.username
       } at ${util.helpers.convertTime(createdTimestamp)}`
     );
@@ -53,4 +71,4 @@ bot.on("message", message => {
 });
 
 // This establishes a websocket connection to Discord.
-bot.login(config.token);
+bot.login(token);
