@@ -10,8 +10,7 @@ require("dotenv").config();
 // Create a new instance of the Discord Client Class.
 const bot = new Discord.Client();
 
-console.log(process.env["DISCORD_TOKEN"]);
-
+// Get the token and prefix from the .ENV file.
 const token = process.env["DISCORD_TOKEN"];
 const prefix = process.env["BOT_PREFIX"];
 
